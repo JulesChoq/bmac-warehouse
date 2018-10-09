@@ -100,7 +100,6 @@ class App extends Component {
               theme="light"
               style={styles.menu}
             >
-
               {Object.keys(pages).map((name) => {
                  return(
                    <Menu.Item key={name}>
@@ -110,19 +109,15 @@ class App extends Component {
                    </Menu.Item>
                  )
               })}
-
             </Menu>
-
           </Header>
 
           <Content style={styles.content}>
-
             {Object.keys(pages).map((name) => {
                return(
                  <Route exact path={"/" + name} component={pages[name]} key={name} />
                )
             })}
-
           </Content>
 
           <Footer style={styles.footer}>
