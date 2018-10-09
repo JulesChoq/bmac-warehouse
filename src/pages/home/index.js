@@ -3,6 +3,18 @@
  */
 
 import React from 'react';
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 import Moment from 'moment';
 import firebase from '../../firebase.js';
 import ReactTable from 'react-table';
@@ -17,6 +29,103 @@ const styles = {
     flexGrow: 1,
     display: "flex",
     flexDirection: "column",
+=======
+import {Button} from 'antd';
+import Form from 'pages/form';
+=======
+import Form from '../../pages/form';
+import App from '../../app.js'
+>>>>>>> 328f6fe... Committing changes made to the form and home pages to help create a form.
+=======
+=======
+>>>>>>> 9e2a758... Committing changes made to the form and home pages to help create a form.
+=======
+>>>>>>> 622a571... Committing changes made to the form and home pages to help create a form.
+import Form from '../../pages/form';
+import App from '../../app.js'
+=======
+import {Button} from 'antd';
+<<<<<<< HEAD
+import Form from '/pages/form';
+>>>>>>> Added absolute path imports
+<<<<<<< HEAD
+>>>>>>> 3a63214... Added absolute path imports
+=======
+=======
+import Form from 'pages/form';
+>>>>>>> altered the homepage
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> bdc2165... altered the homepage
+=======
+=======
+>>>>>>> 622a571... Committing changes made to the form and home pages to help create a form.
+=======
+import Form from '../../pages/form';
+import App from '../../app.js'
+>>>>>>> Committing changes made to the form and home pages to help create a form.
+<<<<<<< HEAD
+>>>>>>> 9e2a758... Committing changes made to the form and home pages to help create a form.
+=======
+import Form from '../../pages/form';
+import App from '../../App.js'
+>>>>>>> bb95b88... removed merge conflict code
+=======
+import Forms from '../../pages/form';
+import App from '../../App.js';
+>>>>>>> 2267fab... Remade basic changes to the form and shipments pages
+=======
+>>>>>>> 622a571... Committing changes made to the form and home pages to help create a form.
+=======
+import Form from '../../pages/form';
+import App from '../../App.js'
+>>>>>>> f9fc80e... removed merge conflict code
+=======
+import Forms from '../../pages/form';
+import App from '../../App.js';
+>>>>>>> 5f83b3f... Remade basic changes to the form and shipments pages
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Layout, Button, Menu } from 'antd'
+
+const { Header, Content, Footer } = Layout;
+=======
+import {Button} from 'antd';
+import Form from 'pages/form';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+>>>>>>> 01a3fe2... Added a page for forms
+=======
+=======
+>>>>>>> 9f01649... Added absolute path imports
+import Form from '../../pages/form';
+import App from '../../app.js'
+=======
+import {Button} from 'antd';
+<<<<<<< HEAD
+import Form from '/pages/form';
+>>>>>>> Added absolute path imports
+=======
+import Form from 'pages/form';
+>>>>>>> altered the homepage
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Layout, Button, Menu } from 'antd'
+
+const { Header, Content, Footer } = Layout;
+>>>>>>> 5bf22ff... Committing changes made to the form and home pages to help create a form.
+
+const styles = {
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'row'
+
+  },
+  button: {
+    alignSelf: 'center',
+    color: 'red',
+<<<<<<< HEAD
+>>>>>>> 65ca915... Added a page for forms
+=======
+>>>>>>> 01a3fe2... Added a page for forms
   },
 };
 
@@ -30,6 +139,8 @@ class Home extends React.Component {
     }
   }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
   componentDidMount(){
     var database = firebase.database();
 
@@ -64,10 +175,26 @@ class Home extends React.Component {
         receiptsData: filteredReceipts
       })
     });;
+=======
+=======
+>>>>>>> 5bf22ff... Committing changes made to the form and home pages to help create a form.
+  handleClick = (e) => {
+    console.log('click ', e);
+    this.setState({
+      current: e.key,
+    });
+<<<<<<< HEAD
+>>>>>>> 328f6fe... Committing changes made to the form and home pages to help create a form.
+=======
+>>>>>>> 5bf22ff... Committing changes made to the form and home pages to help create a form.
   }
 
   render() {
     return(
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
       <div style={styles.container}>
         <p>Welcome to <em>BMAC-Warehouse</em>! Today is {Moment().format('dddd MMMM Do YYYY')}</p>
         <strong>Last 10 days Shipments</strong>
@@ -105,6 +232,59 @@ class Home extends React.Component {
         }
 
       </div>
+=======
+=======
+>>>>>>> 01a3fe2... Added a page for forms
+      <Router>
+
+        <div style={styles.container}>
+          This is the home page!
+
+          <Button onClick={this.handleClick} type="primary" style={styles.button}> Forms</Button>
+        </div>
+
+        <Content style={styles.content}>
+
+            <Route exact path="/form" component={Form} />
+
+          </Content>
+      </Router>
+<<<<<<< HEAD
+>>>>>>> 65ca915... Added a page for forms
+=======
+      <div style={styles.container}>
+        This is the home page!
+        <Router>
+            <Layout style ={styles.layout}>
+              <Link to="/form">
+                <Button onClick={this.handleClick} 
+                  type="primary" style={styles.button}> Forms
+                </Button>
+              </Link>
+              <Content style ={styles.content}>
+              </Content>
+          </Layout>
+        </Router>
+      </div>
+>>>>>>> 997368c... Added absolute path imports
+=======
+>>>>>>> 01a3fe2... Added a page for forms
+=======
+      <div style={styles.container}>
+        This is the home page!
+        <Router>
+            <Layout style ={styles.layout}>
+              <Link to="/form">
+                <Button onClick={this.handleClick} 
+                  type="primary" style={styles.button}> Forms
+                </Button>
+              </Link>
+              <Content style ={styles.content}>
+              </Content>
+          </Layout>
+        </Router>
+      </div>
+>>>>>>> 5878fab... Added absolute path imports
     );
   }
 }

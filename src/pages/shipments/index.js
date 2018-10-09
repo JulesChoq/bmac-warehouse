@@ -4,14 +4,28 @@
 
 import React from 'react';
 import firebase from '../../firebase.js';
+import { Form, Icon, Input, Button } from 'antd';
 import ReactTable from 'react-table';
 import LoadingScreen from '../../components/LoadingScreen';
 import { DatePicker } from 'antd';
 import Moment from 'moment';
+<<<<<<< HEAD
 import { tableKeys } from '../../constants';
 
 const keys = tableKeys['shipments'];
+=======
+import Forms from '../../pages/form';
+<<<<<<< HEAD
+>>>>>>> aa7286b... made changes to form and shipments page
 
+=======
+import Forms from '../form';  
+=======
+>>>>>>> 377bca0... commit
+
+>>>>>>> 5f83b3f... Remade basic changes to the form and shipments pages
+
+const formItem = Form.Item;
 const styles = {
   container: {
     flexGrow: 1,
@@ -61,12 +75,27 @@ class Shipments extends React.Component {
   render() {
     return(
       <div style={styles.container}>
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+      <Forms/>
 
         <div>
           <RangePicker onChange={this.onDateChange} />
         </div>
 
+<<<<<<< HEAD
+=======
+      <Forms/>
+      hello
+>>>>>>> 5f83b3f... Remade basic changes to the form and shipments pages
+=======
+        <Forms/>
+>>>>>>> 9646359... Form page changes
         { !this.state.data ? <LoadingScreen/> :
+=======
+        { !this.state.data.length ? <LoadingScreen/> :
+>>>>>>> 377bca0... commit
           <ReactTable
             data={this.state.filteredData && this.state.dateRange.length ?
                   this.state.filteredData : this.state.data}
