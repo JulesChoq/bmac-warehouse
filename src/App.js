@@ -12,7 +12,7 @@ import Customers from './pages/customers';
 import Reports from './pages/reports';
 import Help from './pages/help';
 import { Layout, Menu } from 'antd';
-
+import Login from './pages/login';
 
 const { Header, Content, Footer } = Layout;
 
