@@ -8,14 +8,11 @@ import LoginForm from '../../components/LoginForm';
 const styles = {
   container: { 
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     margin: '5%',
     
   },
 };
-
-
-
 
 class Login extends React.Component {
   constructor(props){
@@ -25,8 +22,12 @@ class Login extends React.Component {
     }
   }  render() {
     return(
+      <div>
+      <br/><br/><br/>
+      <img src="http://cap60.com/images/BMAC.png"/>
       <div style={styles.container}>
       <LoginForm/>
+      </div>
       </div>
       
 
