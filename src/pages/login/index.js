@@ -4,6 +4,8 @@
 
 import React from 'react';
 import LoginForm from '../../components/LoginForm';
+import firebase from '../../firebase.js'
+
 
 const styles = {
   container: { 
@@ -20,7 +22,10 @@ class Login extends React.Component {
     this.state = {
       data: [],
     }
-  }  render() {
+}
+
+
+render() {
     return(
       <div>
       <br/><br/><br/>

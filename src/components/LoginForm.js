@@ -1,19 +1,61 @@
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import React from 'react';
 import './LoginForm.css';
+import firebase from '../firebase.js'
 
 const FormItem = Form.Item;
 
-class LoginForm extends React.Component {
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  }
 
+//START COMPONENT
+class LoginForm extends React.Component {
+  
+//Login Logic
+/* Need to do this > check if username is in db. 
+If yes, signin, if no createUser. (Maybe a create user page
+    or is jeff going to manually make accounts at the start
+    and let volunteers use anonymouse signUP? */
+
+
+ handleSubmit = (e) => {
+      e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+          if (!err) {    
+            this.signIn(values.userName,values.password);
+            console.log('Received values of form: ', values);
+          } 
+        }
+        );
+      }
+
+//FIREBASE FUNCTIONS
+
+
+
+ createUser=(email,password)=>{firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage)
+    // ...
+  });}
+  signIn =(email,password)=> {firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage)
+    }
+    
+    // ...
+  );
+}
+  signOut=()=>{firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+  }).catch(function(error) {
+    // An error happened.
+  });}
+
+
+  //RENDER 
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
