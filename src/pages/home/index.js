@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import TableDropdown from '../../components/TableDropdown.js';
 
 const styles = {
   container: {
@@ -19,7 +20,8 @@ class Home extends React.Component {
   render() {
     return(
       <div style={styles.container}>
-        This is the home page!
+        This is the DOME page!
+        <TableDropdown/>
       </div>
     );
   }
