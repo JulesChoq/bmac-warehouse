@@ -100,6 +100,7 @@ class App extends Component {
               theme="light"
               style={styles.menu}
             >
+
               {Object.keys(pages).map((name) => {
                  return(
                    <Menu.Item key={name}>
