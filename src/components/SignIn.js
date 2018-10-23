@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
 import { SignUpLink } from './SignUp';
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
 import firebase from '../firebase';
+import {Button} from 'antd';
 
 const SignInPage = ({ history }) =>
   <div>
@@ -30,7 +30,7 @@ class SignInForm extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
-  onSubmit = (event) => {
+  onClick = (event) => {
     const {
       email,
       password,
@@ -81,9 +81,9 @@ class SignInForm extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <Button disabled={isInvalid} onClick={this.onClick} type="primary">
           Sign In
-        </button>
+        </Button>
 
         { error && <p>{error.message}</p> }
       </form>
