@@ -1,7 +1,7 @@
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import React from 'react';
 import './LoginForm.css';
-import firebase from '../firebase.js'
+import firebase from './dashboard/firebase.js'
 const FormItem = Form.Item;
 
 //START COMPONENT
@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
               this.props.handler(true)
              })
 
-          } 
+          }
         }
         );
       }
@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
     var errorMessage = error.message;
     alert(errorMessage)
     }
-    
+
     // ...
   );
 }
@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
   });}
 
 
-  //RENDER 
+  //RENDER
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
