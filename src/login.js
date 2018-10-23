@@ -28,6 +28,7 @@ class LoginPage extends React.Component {
 
   handleLogin = (val) => {
     this.setState({loggedIn: val})
+    console.log(this.state.loggedIn)
   }
 
   render() {
