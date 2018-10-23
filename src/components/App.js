@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import About from './pages/about';
-import Home from './pages/home';
-import Shipments from './pages/shipments';
-import Receipts from './pages/receipts';
-import Products from './pages/products';
-import Staff from './pages/staff';
-import Providers from './pages/providers';
-import Customers from './pages/customers';
-import Reports from './pages/reports';
-import Help from './pages/help';
-import { Layout, Menu } from 'antd';
-import Login from './pages/login';
-
+import About from '../pages/about';
+import Home from '../pages/home';
+import Shipments from '../pages/shipments';
+import Receipts from '../pages/receipts';
+import Products from '../pages/products';
+import Staff from '../pages/staff';
+import Providers from '../pages/providers';
+import Customers from '../pages/customers';
+import Reports from '../pages/reports';
+import Help from '../pages/help';
+import SignIn from '../components/SignIn';
+import SignUp from '../components/SignUp';
+import * as routes from '../constants/routes';
+import SignOutButton from './SignOut';
+import { Layout, Menu, Button } from 'antd';
+import firebase from '../firebase';
 const { Header, Content, Footer } = Layout;
 
 const pages = {
@@ -27,6 +30,9 @@ const pages = {
   customers: Customers,
   reports: Reports,
   help: Help,
+  SignIn: routes.SIGN_IN,
+  SignUp: routes.SIGN_UP
+
 }
 
 const styles = {
@@ -78,7 +84,18 @@ class App extends Component {
     // auto-route to the home page, so for now this is null
     current: null,
   }
-
+  signOut = () => firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    alert("Logged out")
+  }).catch(function(error) {
+    // An error happened.
+    alert("not logged out")
+  })
+  .then(() => {
+    console.log(firebase.auth().currentUser)
+    
+    
+  })
   handleClick = (e) => {
     this.setState({
       current: e.key,
@@ -91,8 +108,8 @@ class App extends Component {
         <Layout style={styles.layout}>
           <Header style={styles.header}>
 
-            <em style={styles.title}>BMAC-Warehouse</em>
-
+            
+            
             <Menu
               onClick={this.handleClick}
               selectedKeys={[this.state.current]}
@@ -110,15 +127,25 @@ class App extends Component {
                    </Menu.Item>
                  )
               })}
+              
             </Menu>
+            <Button onClick={this.signOut}>Sign Out</Button>
+            
           </Header>
 
           <Content style={styles.content}>
-            {Object.keys(pages).map((name) => {
-               return(
-                 <Route exact path={"/" + name} component={pages[name]} key={name} />
-               )
-            })}
+          <Route exact path="/about" component={About} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/shipments" component={Shipments} />
+            <Route exact path="/receipts" component={Receipts} />
+            <Route exact path="/products" component={Products} />
+            <Route exact path="/staff" component={Staff} />
+            <Route exact path="/providers" component={Providers} />
+            <Route exact path="/customers" component={Customers} />
+            <Route exact path="/reports" component={Reports} />
+            <Route exact path="/help" component={Help} />
+            <Route exact path={routes.SIGN_UP}component={SignUp}/>
+            <Route exact path={routes.SIGN_IN}component={SignIn}/>
           </Content>
 
           <Footer style={styles.footer}>
