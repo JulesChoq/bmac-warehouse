@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import AuthenticationProtect from "../../components/AuthenticationProtect.js";
 
 const styles = {
   container: {
@@ -19,6 +20,7 @@ class Help extends React.Component {
   render() {
     return(
       <div style={styles.container}>
+      <AuthenticationProtect/>
         This is the help page!
       </div>
     );

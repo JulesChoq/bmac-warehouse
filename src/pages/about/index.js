@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import AuthenticationProtect from "../../components/AuthenticationProtect.js";
 
 const styles = {
   container: {
@@ -19,10 +20,7 @@ class About extends React.Component {
   render() {
     return(
       <div style={styles.container}>
-
-
-
-      
+        <AuthenticationProtect/>
         Hello there! This is the about page!
       </div>
     );

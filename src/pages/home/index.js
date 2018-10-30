@@ -4,14 +4,12 @@
 import firebase from '../../firebase';
 import React from 'react';
 import {Button} from 'antd';
+import AuthenticationProtect from "../../components/AuthenticationProtect.js";
 
 const styles = {
   container: {
   },
 };
-
-
-
 
 class Home extends React.Component {
   constructor(props){
@@ -32,11 +30,10 @@ if (firebase.auth().currentUser) {
 }
 }
   
-  
-  
   render() {
     return(
       <div style={styles.container}>
+      <AuthenticationProtect/>
       This is the home page.<br/>
       {firebase.auth().currentUser?firebase.auth().currentUser.email:"No user"}
       <Button onClick={this.checkUser}>Check For User</Button> 

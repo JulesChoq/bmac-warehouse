@@ -6,6 +6,7 @@ import React from 'react';
 import firebase from '../../firebase.js';
 import ReactTable from 'react-table';
 import LoadingScreen from '../../components/LoadingScreen';
+import AuthenticationProtect from "../../components/AuthenticationProtect.js";
 
 const styles = {
   container: {
@@ -45,6 +46,7 @@ class Receipts extends React.Component {
   render() {
     return(
       <div style={styles.container}>
+      <AuthenticationProtect/>
         { !this.state.data ? <LoadingScreen/> :
           <ReactTable
             data={this.state.data ? this.state.data : []}

@@ -10,7 +10,7 @@ import './SignIn.css';
 const SignInPage = ({ history }) =>
   <div>
     <br/><br/>
-    <h1>User SignIn</h1>
+    <h1>User Sign In</h1>
     <p>
     Access to BMAC Warehouse requires a Username and a Password.<br/>
     You must be a BMAC staff member to access this system.
@@ -95,7 +95,7 @@ class SignInForm extends Component {
         <Button disabled={isInvalid} onClick={this.onClick} type="primary" className="login-form-button">
           Sign In
         </Button>
-
+        
         { error && <p>{error.message}</p> }
       </Form>
       </div>

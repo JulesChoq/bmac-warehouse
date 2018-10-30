@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import AuthenticationProtect from "../../components/AuthenticationProtect.js";
 
 const styles = {
   container: {
@@ -19,6 +20,7 @@ class Reports extends React.Component {
   render() {
     return(
       <div style={styles.container}>
+        <AuthenticationProtect/>
         This is the Reports page!
       </div>
     );
