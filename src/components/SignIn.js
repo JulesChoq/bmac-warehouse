@@ -4,7 +4,8 @@ import { SignUpLink } from './SignUp';
 import { auth } from '../firebase';
 import * as routes from '../constants/routes';
 import firebase from '../firebase';
-import {Button} from 'antd';
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
+
 
 const SignInPage = ({ history }) =>
   <div>
@@ -68,14 +69,14 @@ class SignInForm extends Component {
       email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <Form onSubmit={this.onSubmit}>
+        <Input
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
           type="text"
           placeholder="Email Address"
         />
-        <input
+        <Input
           value={password}
           onChange={event => this.setState(byPropKey('password', event.target.value))}
           type="password"
@@ -86,7 +87,7 @@ class SignInForm extends Component {
         </Button>
 
         { error && <p>{error.message}</p> }
-      </form>
+      </Form>
     );
   }
 }
