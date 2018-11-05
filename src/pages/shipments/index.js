@@ -9,21 +9,7 @@ import ReactTable from 'react-table';
 import LoadingScreen from '../../components/LoadingScreen';
 import { DatePicker } from 'antd';
 import Moment from 'moment';
-<<<<<<< HEAD
-import { tableKeys } from '../../constants';
 
-const keys = tableKeys['shipments'];
-=======
-import Forms from '../../pages/form';
-<<<<<<< HEAD
->>>>>>> aa7286b... made changes to form and shipments page
-
-=======
-import Forms from '../form';  
-=======
->>>>>>> 377bca0... commit
-
->>>>>>> 5f83b3f... Remade basic changes to the form and shipments pages
 
 const formItem = Form.Item;
 const styles = {
@@ -36,13 +22,25 @@ const styles = {
 
 const { RangePicker } = DatePicker;
 
+const keys = [
+  "customer_id",
+  "funds_source",
+  "ship_date",
+  "ship_via",
+  "ship_rate",
+  "total_weight",
+  "total_price",
+  "invoice_date",
+  "invoice_no",
+  "notes"
+];
+
 class Shipments extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      data: null,
-      filteredData: null,
-      dateRange: null,
+      data: [],
+      filteredData: [],
     }
   }
 
@@ -51,14 +49,13 @@ class Shipments extends React.Component {
     for (var i = 0; i < this.state.data.length; i++){
       var entry = this.state.data[i]
       var entryDate = Moment(entry['ship_date'], 'YY-MM-DD:HH:mm')
-      if(entryDate >= dateRange[0] && entryDate <= dateRange[1]){
+      if(entryDate >= dateRange[0] && entryDate >= dateRange[0]){
         newData.push(entry)
       }
     }
     this.setState({
       filteredData: newData,
-      dateRange: dateRange,
-    }, function () {console.log(this.state.dateRange)})
+    })
   }
 
   componentDidMount(){
@@ -75,30 +72,14 @@ class Shipments extends React.Component {
   render() {
     return(
       <div style={styles.container}>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-      <Forms/>
 
         <div>
           <RangePicker onChange={this.onDateChange} />
         </div>
 
-<<<<<<< HEAD
-=======
-      <Forms/>
-      hello
->>>>>>> 5f83b3f... Remade basic changes to the form and shipments pages
-=======
-        <Forms/>
->>>>>>> 9646359... Form page changes
-        { !this.state.data ? <LoadingScreen/> :
-=======
         { !this.state.data.length ? <LoadingScreen/> :
->>>>>>> 377bca0... commit
           <ReactTable
-            data={this.state.filteredData && this.state.dateRange.length ?
-                  this.state.filteredData : this.state.data}
+            data={this.state.filteredData.length ? this.state.filteredData : this.state.data}
             columns={keys.map(string => {
                 return({
                   Header: string,
